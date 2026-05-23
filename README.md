@@ -11,6 +11,9 @@
 
 > **Found Rs. 4.2 Crore in hidden revenue leakage across 1 million e-commerce transactions in 6 weeks.**
 
+[![LinkedIn](https://img.shields.io/badge/Connect%20on-LinkedIn-0077B5?style=for-the-badge&logo=linkedin)](YOUR_LINKEDIN_URL_HERE)
+[![Power BI](https://img.shields.io/badge/View-Live%20Dashboard-F2C811?style=for-the-badge&logo=powerbi)](YOUR_POWERBI_URL_HERE)
+
 </div>
 
 ---
@@ -55,6 +58,44 @@
 
 ## 🛠 Tech Stack
 
+Data Generation    →  Python, Faker, NumPy, Pandas
+Data Cleaning      →  Pandas, SciPy (IQR method)
+Feature Engineering→  Pandas GroupBy, DateTime, qcut
+EDA & Charts       →  Matplotlib, Seaborn (8 charts)
+Segmentation       →  RFM scoring (300K customers)
+Dashboard          →  Power BI Desktop, DAX measures
+PDF Report         →  ReportLab
+
+---
+
+## 📁 Repository Structure
+📁 Project-VelocIQ/
+│
+├── 📄 README.md
+│
+├── 📂 data/
+│   ├── zenkart_velociq_clean.csv       # 884,708 clean rows
+│   └── zenkart_velociq_rfm.csv         # RFM segments (300K customers)
+│
+├── 📂 scripts/
+│   ├── zenkart_velociq_data_generator.py   # Generate 1M rows
+│   └── zenkart_velociq_eda.py              # Full EDA & cleaning pipeline
+│
+├── 📂 charts/
+│   ├── 01_monthly_revenue_trend.png
+│   ├── 02_aov_by_region.png
+│   ├── 03_cart_abandon_by_device.png
+│   ├── 04_revenue_by_category.png
+│   ├── 05_revenue_distribution.png
+│   ├── 06_rfm_segments.png
+│   ├── 07_discount_vs_revenue.png
+│   └── 08_correlation_heatmap.png
+│
+├── 📂 reports/
+│   └── VelocIQ_Stakeholder_Script_Jeet.pdf
+│
+└── 📂 docs/
+└── PowerBI_DAX_Guide.md
 
 ---
 
@@ -174,11 +215,26 @@ RETURN IF(Rate > 0.35, "🚨 CRITICAL — " & FORMAT(Rate,"0.0%"),
 
 ---
 
-## 📬 Connect
+## 🌐 Links
 
-If this project helped you — please ⭐ star the repo and share it!
+| | Link |
+|---|---|
+| 📊 Live Power BI Dashboard | [View Dashboard](YOUR_POWERBI_URL_HERE) |
+| 💼 LinkedIn | [Connect with Jeet](YOUR_LINKEDIN_URL_HERE) |
 
-For questions, collaboration, or feedback — connect with me on LinkedIn.
+---
+
+## 💬 Want to be added to this project's contributor wall?
+
+> Drop a ⭐ star on this repo AND comment on the LinkedIn post with **#VelocIQ** — I'll add your name and LinkedIn here!
+
+### 🏆 Contributor Wall
+*Be the first! Star the repo + comment #VelocIQ on LinkedIn to get added here.*
+
+| Name | LinkedIn | Role |
+|------|----------|------|
+| Jeet | [Connect](YOUR_LINKEDIN_URL_HERE) | Lead Analyst |
+| *(your name here)* | *(your link)* | *(community contributor)* |
 
 ---
 

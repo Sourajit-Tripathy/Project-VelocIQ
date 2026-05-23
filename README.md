@@ -219,8 +219,8 @@ RETURN IF(Rate > 0.35, "🚨 CRITICAL — " & FORMAT(Rate,"0.0%"),
 
 | | Link |
 |---|---|
-| 📊 Live Power BI Dashboard | [View Dashboard](YOUR_POWERBI_URL_HERE) |
-| 💼 LinkedIn | [Connect with Jeet](YOUR_LINKEDIN_URL_HERE) |
+| 📊 Live Power BI Dashboard | [View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMzQxM2UxZDEtZTYwMy00ZjdhLWJmNmYtNjY4NDg1ZDkzNmM4IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9) |
+| 💼 LinkedIn | [Connect with Sourajit](https://www.linkedin.com/in/sourajit-tripathy/) |
 
 ---
 
@@ -233,7 +233,7 @@ RETURN IF(Rate > 0.35, "🚨 CRITICAL — " & FORMAT(Rate,"0.0%"),
 
 | Name | LinkedIn | Role |
 |------|----------|------|
-| Jeet | [Connect](YOUR_LINKEDIN_URL_HERE) | Lead Analyst |
+  | Sourajit | [Connect](https://www.linkedin.com/in/sourajit-tripathy/) |  Analyst |
 | *(your name here)* | *(your link)* | *(community contributor)* |
 
 ---

@@ -1,0 +1,78 @@
+IDorder_id
+Unique identifier for every single transaction/order placed on ZenKart.
+
+
+IDcustomer_id
+Unique identifier for each customer. One customer can have many orders — this is how we link all their purchases together to calculate lifetime value.
+
+
+DATEorder_date
+The date the order was placed. Ranges from Jan 2023 to Dec 2024. Used for all time-based analysis — monthly trends, seasonality, festive peaks.
+
+
+DATEorder_time
+The time of day the order was placed. Useful for understanding peak shopping hours — e.g. late night mobile browsing vs. office-hour desktop orders.
+
+year
+The year of the order — either 2023 or 2024. Used to compare year-on-year performance.
+
+
+NUMmonth
+The month number (1–12). October (10) and November (11) are festive season months — revenue is intentionally highest here to reflect Diwali/sale season.
+
+
+TEXTday_of_week
+The name of the day the order was placed. Helps spot weekend vs weekday buying patterns — do customers browse more on Sundays?
+
+
+TEXTproduct_category
+The category of the product ordered. ZenKart has 8 categories. Electronics has the highest revenue but also the highest return rate (16.7%).
+
+
+TEXTregion
+The geographic region of the customer. One of 8 regions across India. South region has a deliberately lower AOV (₹66 vs North ₹77) — this is one of ZenKart's 3 core business problems.
+
+Example: North, South, East, West, Central, Northeast, Northwest, Southeast
+
+TEXTdevice_type
+The device used to place the order. Mobile has 55% of all orders but 42% cart abandonment rate — the highest of any device. This is ZenKart's biggest revenue leak.
+
+Example: mobile (55%), desktop (35%), tablet (10%)
+
+NUMquantity
+Number of items ordered in a single transaction. Ranges from 1 to 7. Higher quantity orders often have bigger discounts applied.
+
+Example: 3 — customer bought 3 items in one order
+
+₹base_revenue_inr
+The original price of the order before any discount was applied. In Indian Rupees (₹ INR).
+
+Example: ₹450 — the listed price before discount
+
+NUMdiscount_pct
+The percentage discount applied to this order. Can be 0%, 5%, 10%, 15%, 20%, or 25%. 40% of orders have no discount at all. Used to analyse discount elasticity — does more discount = more orders?
+
+
+₹final_revenue_inr
+The actual revenue ZenKart received after the discount was applied. This is the most important revenue column — used for all financial analysis, AOV, and Power BI dashboards.
+
+Example: ₹360 — base ₹450 minus 20% discount
+
+NUMsession_duration_mins
+How many minutes the customer spent on the ZenKart app/site before placing the order. Mobile sessions tend to be shorter. Longer sessions often correlate with higher order values.
+
+Example: 12.4 — spent 12 minutes browsing before buying
+
+FLAGcart_abandon_flag
+Whether this customer abandoned their cart at some point (1 = yes, 0 = no). This is one of ZenKart's 3 core business problems — mobile abandonment is 42%, costing crores in lost revenue.
+
+Example: 1 = customer added to cart but didn't complete purchase at some stage
+
+FLAGreturn_flag
+Whether the order was returned or refunded (1 = yes, 0 = no). Electronics (16.7%) and Clothing (14.5%) have the highest return rates. High discounts also increase return likelihood.
+
+TEXTpayment_method
+How the customer paid. UPI dominates at 38% — very typical for Indian e-commerce. COD (Cash on Delivery) at 10% often has higher return rates.
+
+Example: UPI (38%), Credit Card (22%), Debit Card (18%), Net Banking (8%), COD (10%), Wallet (4%)
+

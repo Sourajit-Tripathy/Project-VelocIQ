@@ -1,0 +1,193 @@
+<div align="center">
+
+# 🚀 Project VelocIQ
+### Revenue Intelligence & Customer Analytics
+**Client: ZenKart Commerce Pvt. Ltd.**
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?style=for-the-badge&logo=powerbi)
+![Pandas](https://img.shields.io/badge/Pandas-EDA-green?style=for-the-badge&logo=pandas)
+![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
+
+> **Found Rs. 4.2 Crore in hidden revenue leakage across 1 million e-commerce transactions in 6 weeks.**
+
+</div>
+
+---
+
+## 📌 Project Overview
+
+| Field | Details |
+|-------|---------|
+| **Project Name** | VelocIQ (VI-2024-001) |
+| **Client** | ZenKart Commerce Pvt. Ltd. |
+| **Lead Analyst** | Jeet |
+| **Head of Analytics** | Sourajit Tripathy |
+| **Dataset Size** | 1,000,000 rows |
+| **Clean Dataset** | 884,708 rows |
+| **Date Range** | Jan 2023 – Dec 2024 |
+| **Timeline** | 6 weeks |
+| **Total Impact Found** | Rs. 4.2 Crore / year |
+
+---
+
+## 🔥 3 Key Findings
+
+### 📱 Finding 1 — Mobile Cart Abandonment
+- Mobile abandon rate: **42.1%** vs Desktop: **20.0%**
+- 55% of all orders initiated on mobile
+- **Revenue lost: Rs. 1.8 Crore / year**
+- Root cause: 6-step checkout, UPI timeout, no guest checkout
+
+### 📍 Finding 2 — South Region AOV Gap
+- South region AOV: **Rs. 66** vs Platform average: **Rs. 72**
+- 8% below average — persisted across both years
+- **Opportunity: Rs. 1.1 Crore / year**
+- Root cause: High Food & Grocery mix, low Electronics penetration, excess discounting
+
+### 👑 Finding 3 — Customer Concentration Risk
+- Top **8% of customers** drive **52% of revenue**
+- 58,000 Champion customers with no VIP programme
+- **Revenue at risk: Rs. 3.5 Crore** if Champions churn
+- Root cause: No loyalty tier, no early warning system
+
+---
+
+## 🛠 Tech Stack
+
+
+---
+
+## ⚡ Quick Start
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/YOUR_USERNAME/Project-VelocIQ.git
+cd Project-VelocIQ
+```
+
+### 2. Install dependencies
+```bash
+pip install pandas numpy faker matplotlib seaborn scipy tqdm reportlab
+```
+
+### 3. Generate the 1M row dataset
+```bash
+python scripts/zenkart_velociq_data_generator.py
+```
+⏱ Runs in under 20 seconds. Outputs `zenkart_velociq_1M.csv`
+
+### 4. Run the full EDA pipeline
+```bash
+python scripts/zenkart_velociq_eda.py
+```
+Outputs:
+- `zenkart_velociq_clean.csv` — 884,708 clean rows
+- `zenkart_velociq_rfm.csv` — RFM segments
+- `charts/` — 8 PNG visualisations
+
+### 5. Open Power BI Dashboard
+- Import `zenkart_velociq_clean.csv` and `zenkart_velociq_rfm.csv`
+- Follow the DAX setup in `docs/PowerBI_DAX_Guide.md`
+
+---
+
+## 📊 EDA Charts Preview
+
+| Chart | Insight |
+|-------|---------|
+| Monthly Revenue Trend | Festive peaks in Oct–Nov (45% above avg) |
+| AOV by Region | South is 8% below platform average |
+| Cart Abandon by Device | Mobile 42% vs Desktop 20% |
+| Revenue by Category | Electronics highest, Food lowest |
+| Revenue Distribution | Right-skewed, mean Rs. 72 |
+| RFM Segments | Champions = 8% customers, 52% revenue |
+| Discount vs Revenue | Higher discounts don't lift basket size |
+| Correlation Heatmap | Session duration + revenue positively correlated |
+
+---
+
+## 💡 RFM Segments
+
+| Segment | Customers | Avg Spend | Priority |
+|---------|-----------|-----------|----------|
+| 👑 Champions | 58,000 | Rs. 605 | RETAIN |
+| 💙 Loyal | 57,000 | Rs. 210 | NURTURE |
+| 🌱 Potential Loyalist | 62,000 | Rs. 130 | CONVERT |
+| ⚠️ At Risk | 69,000 | Rs. 84 | REACTIVATE |
+| 💤 Lost | 54,000 | Rs. 52 | WIN BACK |
+
+---
+
+## 📋 4 Recommendations
+
+| # | Action | Owner | Timeline | Impact |
+|---|--------|-------|----------|--------|
+| 1 | Fix mobile checkout (6 steps → 4, guest checkout, UPI fix) | Engineering | 6 weeks | Rs. 1.8 Cr/yr |
+| 2 | Abandoned cart retargeting (push + email within 1 hr) | VP Marketing | 2 weeks | Rs. 40L/yr |
+| 3 | Champions VIP programme (early access, free shipping) | Marketing + CRM | 4 weeks | Rs. 1.2 Cr/yr |
+| 4 | South region Electronics push + reduce discounting 30% | Marketing + Ops | 3 weeks | Rs. 75L/yr |
+| | **TOTAL** | | **All in 30 days** | **Rs. 4.2 Cr/yr** |
+
+---
+
+## 📄 Power BI DAX Measures
+
+```dax
+Total Revenue = SUM(zenkart_velociq_clean[final_revenue_inr])
+
+Total Orders = COUNTROWS(zenkart_velociq_clean)
+
+Avg Order Value = AVERAGE(zenkart_velociq_clean[final_revenue_inr])
+
+Cart Abandon Rate =
+DIVIDE(
+  COUNTROWS(FILTER(zenkart_velociq_clean, zenkart_velociq_clean[cart_abandon_flag] = 1)),
+  COUNTROWS(zenkart_velociq_clean)
+)
+
+MoM Revenue Growth =
+DIVIDE(
+  [Total Revenue] - CALCULATE([Total Revenue], PREVIOUSMONTH(DateTable[Date])),
+  CALCULATE([Total Revenue], PREVIOUSMONTH(DateTable[Date]))
+)
+
+Abandon Alert =
+VAR Rate = [Cart Abandon Rate]
+RETURN IF(Rate > 0.35, "🚨 CRITICAL — " & FORMAT(Rate,"0.0%"),
+       IF(Rate > 0.28, "⚠ WARNING — " & FORMAT(Rate,"0.0%"),
+       "✓ HEALTHY — " & FORMAT(Rate,"0.0%")))
+```
+
+---
+
+## 👥 Team
+
+| Role | Name |
+|------|------|
+| Lead Analyst (External) | **Jeet** |
+| Head of Analytics | **Sourajit Tripathy** |
+| CEO | Rajesh Kapoor |
+| CFO | Ananya Mehta |
+| VP Marketing | Vikram Nair |
+| VP Operations | Sneha Pillai |
+
+---
+
+## 📬 Connect
+
+If this project helped you — please ⭐ star the repo and share it!
+
+For questions, collaboration, or feedback — connect with me on LinkedIn.
+
+---
+
+<div align="center">
+
+**Project VelocIQ · ZenKart Commerce Pvt. Ltd. · Analyst: Jeet**
+
+*"Data does not lie. Act on it."*
+
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=YOUR_USERNAME.Project-VelocIQ)
+
+</div>
